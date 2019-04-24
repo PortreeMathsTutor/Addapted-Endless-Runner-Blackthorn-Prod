@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AddRandumSpeed : MonoBehaviour
+{
+    private float speed =1;
+    private float increment;
+    private Vector2 targetPos;
+    // Start is called before the first frame update
+    void Start()
+    {
+        speed= Random.Range(-1f, 10.0f);
+    }
+    // Update is called once per frame
+    void Update()
+        {
+            increment = Random.Range(-1f, 10.0f);
+        
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+        targetPos = new Vector2(transform.position.x + increment, transform.position.y);
+    }
+}
