@@ -1,0 +1,20 @@
+using UnityEngine.UI;
+
+public class ScoreManager : MonoBehaviour
+{
+    public int score;
+    public Text scoreDisplay;
+   public int deadNow=0;
+    private void Update()
+    {
+        scoreDisplay.text = ("Score ") + score.ToString();
+        deadNow = PlayerController.deadNow;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    { if (deadNow == 0) {
+            score++;
+            Destroy(other.gameObject);
+        }
+    }
+}
